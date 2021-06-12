@@ -5,7 +5,7 @@ import { MOCKS } from '../constants/global';
 @Injectable({
   providedIn: 'root'
 })
-export class PruebaService {
+export class RegimesService {
 
   constructor(private _http: HttpClient) { }
 

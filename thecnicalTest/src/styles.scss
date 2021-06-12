@@ -1,26 +1,26 @@
-@import '~normalize.css';
+@import "~normalize.css";
 @import "./assets/styles/color-variables.scss";
 @import "./assets/styles/at-break.scss";
 @import "./assets/styles/tipography.scss";
 
-.bloque {
-  background-color: yellow;
-
-  @include at-sm {
-    background-color: red;
+* {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-03);
+    border-radius: 15px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
   }
 
-  @include at-md {
-    background-color: green;
-  }
-
-  @include at-lg {
-    background-color: royalblue;
+  ::-webkit-scrollbar-track {
+    background: var(--bg-02);
   }
 }
 
-body{
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+body {
+  background-color: var(--bg-01);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
-
-

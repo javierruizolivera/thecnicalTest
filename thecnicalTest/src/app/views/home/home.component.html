@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="home-container">
+  <div class="main-layout">
+    <div class="tabs-container">
+      <app-tabs [items]="navItems"
+        (navItemSelected)="changeTab($event)"></app-tabs>
+    </div>
+    <app-regimes [visible]="showRegimes"></app-regimes>
+    <app-drinks [visible]="showDrinks"></app-drinks>
+  </div>
+</div>

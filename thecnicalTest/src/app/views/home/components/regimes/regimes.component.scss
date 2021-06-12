@@ -1,0 +1,42 @@
+@import "../../../../../assets/styles/at-break.scss";
+
+.regimes-container {
+  padding: 1rem;
+
+  header {
+    text-align: center;
+
+    @include at-sm {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .start-block {
+      text-align: center;
+
+      @include at-sm {
+        margin-left: 2rem;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .start {
+        font-size: 1rem;
+        color: var(--semantic-02);
+        margin: -0.5rem;
+      }
+    }
+  }
+
+  main {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+
+    article {
+      height: 30.5rem;
+    }
+  }
+}

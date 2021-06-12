@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PruebaService } from '../../services/prueba.service';
+import { NavItem } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +7,32 @@ import { PruebaService } from '../../services/prueba.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private _pruebaService: PruebaService) {}
+  public navItems: Array<NavItem> = [];
+  public showRegimes: boolean = true;
+  public showDrinks: boolean = false;
+
+  constructor() {}
 
   ngOnInit(): void {
+    this.navItems = [
+      {
+        title: 'Tab 1',
+        action: 'GO_TO_REGIMENES_SECTION',
+      },
+      {
+        title: 'Tab 2',
+        action: 'GO_TO_DRINKS_SECTION',
+      },
+    ];
+  }
 
-    this._pruebaService.getRegimes().subscribe((response) => {
-      console.log('response', response);
-    });
+  public changeTab(navItem: NavItem) {
+    if (navItem && navItem.action === 'GO_TO_DRINKS_SECTION') {
+      this.showRegimes = false;
+      this.showDrinks = true;
+    } else {
+      this.showRegimes = true;
+      this.showDrinks = false;
+    }
   }
 }
