@@ -1,0 +1,43 @@
+h1.heading-01 {
+  font: 1.5rem/1.875rem "Roboto Slab";
+  color: var(--secondary);
+}
+h2.heading-02 {
+  font: bold 1.5rem/2.375rem "Roboto Slab";
+  color: var(--primary);
+}
+
+h3.heading-03 {
+  font: bold 1.125rem/1.5rem "Roboto Slab";
+  color: var(--tertiary);
+}
+
+.text-tab {
+  font: 1rem/0.875rem "Roboto Slab";
+  color: var(--text-02);
+}
+
+h3.heading-card {
+  font: bold 1rem/1rem "Roboto";
+  color: var(--secondary);
+}
+
+.text-button {
+  font: 1.125rem/1.5rem "Roboto";
+  color: var(--text-02);
+}
+
+.text-card {
+  font: 1.9375rem/1.5625rem "Roboto";
+  color: var(--text-02);
+}
+
+.text-info {
+  font: 1.875rem/1.1875rem "Roboto Slab";
+  color: var(--primary);
+}
+
+.text-body {
+  font: bold 0.875rem/1.25rem "Roboto";
+  color: var(--text-01);
+}

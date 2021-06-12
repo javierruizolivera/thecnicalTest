@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+@import "./assets/styles/color-variables.scss";
+@import "./assets/styles/at-break.scss";
+@import "./assets/styles/tipography.scss";
+
+.bloque {
+  background-color: yellow;
+
+  @include at-sm {
+    background-color: red;
+  }
+
+  @include at-md {
+    background-color: green;
+  }
+
+  @include at-lg {
+    background-color: royalblue;
+  }
+}
+
+body{
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+
