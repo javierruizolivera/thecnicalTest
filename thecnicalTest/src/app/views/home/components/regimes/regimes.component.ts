@@ -10,6 +10,7 @@ import {
 import { RegimeItem } from 'src/app/interfaces/interfaces';
 import { RegimesService } from 'src/app/services/regimes.service';
 import { RegimeCardComponent } from './components/regime-card/regime-card.component';
+import { StoreService } from '../../../../services/store.service';
 
 @Component({
   selector: 'app-regimes',
@@ -17,20 +18,27 @@ import { RegimeCardComponent } from './components/regime-card/regime-card.compon
   styleUrls: ['./regimes.component.scss'],
 })
 export class RegimesComponent implements OnInit {
-
   @Input() public visible: boolean = false;
   @ViewChildren('cmp') private regimesList: QueryList<RegimeCardComponent>;
 
   public regimesData: Array<RegimeItem> = [];
 
-  constructor(private _regimesService: RegimesService) {}
+  constructor(
+    private _regimesService: RegimesService,
+    private _storeService: StoreService
+  ) {}
 
   ngOnInit(): void {
     this._loadRegimes();
   }
 
   ngAfterViewInit() {
-    this.regimesList.changes.subscribe();
+    this.regimesList.changes.subscribe(() => {
+      const regimeSelected = this._storeService.getRegimeFromStore();
+      if (regimeSelected) {
+        this.selectRegimeCard(parseInt(regimeSelected));
+      }
+    });
   }
 
   private _loadRegimes() {
@@ -45,5 +53,6 @@ export class RegimesComponent implements OnInit {
       regime.resetSelected();
     });
     regimesList[number].selectRegime();
+    this._storeService.setRegimeInStore(number);
   }
 }
