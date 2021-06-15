@@ -1,8 +1,11 @@
 @import "./../../../../../assets/styles/at-break.scss";
 
 .drinks-container {
+  padding-bottom: 2rem;
+
   h2.drink-title {
     padding-left: 1rem;
+    padding-bottom: 2rem;
 
     @include at-sm {
       padding-left: 0;

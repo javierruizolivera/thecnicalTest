@@ -5,11 +5,11 @@
 
 * {
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 0.5rem;
   }
   &::-webkit-scrollbar-thumb {
     background: var(--text-03);
-    border-radius: 15px;
+    border-radius: 1rem;
   }
   &::-webkit-scrollbar-thumb:hover {
     background: var(--secondary);
@@ -20,7 +20,12 @@
   }
 }
 
+html{
+  height: 100%;
+}
+
 body {
+  height: 100%;
   background-color: var(--bg-01);
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }

@@ -1,3 +1,85 @@
-.material-icons.start{
-  color: orange;
+@import "../../../assets/styles/at-break.scss";
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+
+  @include at-sm {
+    flex-direction: row;
+  }
+
+  & .title-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    width: 100%;
+    height: 50%;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      45deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(0, 24, 65, 1) 25%,
+      rgba(0, 57, 112, 1) 100%
+    );
+    color: white;
+
+    @include at-sm {
+      width: 50%;
+      height: 100%;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    @include at-md {
+      text-align: right;
+      padding-right: 2rem;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+    }
+  }
+
+  & .navigate-block {
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+    height: 50%;
+
+    @include at-sm {
+      width: 50%;
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include at-md {
+      justify-content: flex-start;
+      padding-left: 2rem;
+    }
+
+    a {
+      transition: background-color 0.5s;
+      padding: 1rem 2rem;
+      background-color: var(--text-03);
+      color: var(--text-01);
+      border-radius: 0.4rem;
+      text-decoration: none;
+
+      &:hover {
+        background-color: var(--primary);
+      }
+    }
+  }
 }
