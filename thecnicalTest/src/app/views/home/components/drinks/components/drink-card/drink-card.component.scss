@@ -1,0 +1,148 @@
+@import "./../../../../../../../assets/styles/at-break.scss";
+
+article.beer-container {
+  width: 100%;
+  border: 1px solid var(--text-03);
+  padding: 1rem;
+  box-sizing: border-box;
+  margin: 1rem 0;
+
+  @include at-sm {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & picture.photo {
+    display: block;
+    height: 9.5rem;
+    width: 100%;
+    text-align: center;
+
+    @include at-sm {
+      display: flex;
+      justify-content: center;
+      width: 12rem;
+      height: 12rem;
+    }
+
+    @include at-md {
+      display: flex;
+      justify-content: center;
+      width: 9.5rem;
+      height: 9.5rem;
+    }
+
+    img {
+      height: 9.5rem;
+    }
+  }
+
+  & .drink-info-wrapper {
+    display: block;
+
+    @include at-sm {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: calc(100% - 9.5rem);
+    }
+
+    & .drink-info-content {
+      width: 100%;
+
+      @include at-sm {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      & .drink-description-wrapper {
+        margin-top: 1rem;
+
+        @include at-sm {
+          margin: 0;
+          width: calc(100% - 8rem);
+        }
+
+        @include at-md {
+          max-height: 7.5rem;
+        }
+
+        h3.drink-name {
+          text-align: center;
+          margin: 0 0 0.125rem 0;
+
+          @include at-sm {
+            text-align: left;
+          }
+        }
+
+        p.drink-description {
+          margin: 0;
+          text-align: justify;
+
+          @include at-sm {
+            max-height: 6rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+
+          &.expand{
+            display: block;
+            max-height: none;
+          }
+        }
+        span.show-more {
+          display: none;
+
+          @include at-sm {
+            display: inline-block;
+            padding: 2px 4px;
+            background-color: var(--bg-01);
+            color: var(--text-03);
+            border-radius: 3px;
+          }
+
+          &:hover {
+            background-color: var(--primary);
+            color: var(--bg-03);
+            cursor: pointer;
+          }
+        }
+      }
+
+      & h3.abv {
+        color: var(--bg-03);
+        text-align: center;
+        margin-top: 1.125rem;
+        height: 2rem;
+        padding: 0.5rem 0 0 0.5rem;
+
+        &.low {
+          background-color: var(--data-03);
+        }
+
+        &.medium {
+          background-color: var(--data-02);
+        }
+
+        &.high {
+          background-color: var(--data-01);
+        }
+
+        @include at-sm {
+          width: 5rem;
+          margin-top: 0;
+          text-align: left;
+        }
+      }
+    }
+
+    & .ideal-to-combine {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+}

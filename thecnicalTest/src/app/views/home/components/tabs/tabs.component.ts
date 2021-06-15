@@ -15,8 +15,8 @@ export class TabsComponent implements OnInit {
 
   public ngOnInit(): void {}
 
-  public handlerNavItem(navItem: NavItem, itemSelected: number) {
+  public handlerNavItem(itemSelected: number) {
     this.activeItem = itemSelected;
-    this.navItemSelected.emit(navItem);
+    this.navItemSelected.emit(itemSelected);
   }
 }

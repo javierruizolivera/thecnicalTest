@@ -1,20 +1,27 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DrinksService } from '../../../../services/drinks.service';
 
 @Component({
   selector: 'app-drinks',
   templateUrl: './drinks.component.html',
-  styleUrls: ['./drinks.component.scss']
+  styleUrls: ['./drinks.component.scss'],
 })
 export class DrinksComponent implements OnInit {
-  @Input() public visible: boolean = false;
+  public drinksData: any = null;
 
-  public loaded: boolean = false;
+  constructor(private _drinkService: DrinksService) {}
 
-  /*   ngAfterViewChecked() {
-    setTimeout(() => (this.loaded = true), 2000);
-  } */
+  ngOnInit(): void {
+    this._loadDrinksData();
+  }
 
-  constructor() {}
+  private _loadDrinksData() {
+    this._drinkService.getDrinks().subscribe((response: any) => {
+      this.drinksData = response.sort(this._compareABV);
+    });
+  }
 
-  ngOnInit(): void {}
+  private _compareABV(a: any, b: any) {
+    return a.abv - b.abv;
+  }
 }

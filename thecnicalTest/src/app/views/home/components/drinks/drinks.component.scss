@@ -1,3 +1,17 @@
+@import "./../../../../../assets/styles/at-break.scss";
+
 .drinks-container {
-  
+  h2.drink-title {
+    padding-left: 1rem;
+
+    @include at-sm {
+      padding-left: 0;
+    }
+  }
+  main {
+    border: 1px solid var(--text-03);
+    padding: 1rem;
+    background-color: var(--bg-03);
+    margin-bottom: 2rem;
+  }
 }

@@ -3,15 +3,15 @@
     <h3 class="heading-card">{{regimeData.title}}</h3>
     <hr class="h-line">
   </header>
-  <main class="card-body">
+  <main class="card-body" role="regimeInfo">
     <ul class="regime-list">
       <ng-container *ngFor="let regimeItem of regimeData.items">
         <li class="regime-item text-body">{{regimeItem}}</li>
       </ng-container>
     </ul>
   </main>
-  <div class="card-button text-button" (click)="regimeSelected()">
+  <button class="card-button text-button" (click)="regimeSelected()" role="selectRegime">
       <span class="checkmark" [ngClass]="{selected: selected}"></span>
       <span class="check-label">Elegir Régimen</span>
-  </div>
+  </button>
 </div>

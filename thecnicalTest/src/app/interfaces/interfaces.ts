@@ -1,6 +1,8 @@
+import { Type } from "@angular/core";
+
 export interface NavItem {
   title: string;
-  action: string;
+  component: Type<unknown>
 }
 
 export interface RegimeItem {

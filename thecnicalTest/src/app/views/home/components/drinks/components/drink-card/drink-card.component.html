@@ -1,0 +1,23 @@
+<article class="beer-container">
+  <picture role="drinks" class="photo">
+    <img src="{{drinkData.image_url}}" alt="{{drinkData.name}}">
+  </picture>
+
+  <div class="drink-info-wrapper">
+    <div role="drink Info Content" class="drink-info-content">
+      <div class="drink-description-wrapper">
+        <h3 class="heading-03 drink-name" role="drink name">{{drinkData.name}}</h3>
+        <p class="text-body drink-description" [ngClass]="{expand: textExpand}"
+          role="drink escription"
+          #drinkText>{{drinkData.description}}</p>
+        <span *ngIf="overflow" class="text-body show-more" (click)="showMore()">
+          Ver {{textExpand ? 'menos' : 'más'}}</span>
+      </div>
+      <h3 class="heading-03 abv"
+        [ngClass]="[getClassByCategory(drinkData.abv)]">{{drinkData.abv}}</h3>
+    </div>
+    <div role="idealToCombine" class="text-info ideal-to-combine"><strong>Ideal
+        para combinar con: {{ getFoodPairingText(drinkData.food_pairing)}}</strong></div>
+  </div>
+
+</article>

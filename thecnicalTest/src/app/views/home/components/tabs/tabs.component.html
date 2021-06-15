@@ -2,7 +2,7 @@
   <ul class="nav-tabs">
     <ng-container *ngFor="let navItem of items; let i= index">
       <li class="nav-item"
-        (click)="handlerNavItem(navItem, i)"
+        (click)="handlerNavItem(i)"
         [ngClass]="{active: activeItem === i}">
         <a class="nav-link text-tab">{{navItem.title}}</a>
       </li>

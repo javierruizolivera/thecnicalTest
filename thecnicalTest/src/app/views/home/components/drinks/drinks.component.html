@@ -1,3 +1,14 @@
-<div class="drinks-container" *ngIf="visible" [@enterAnimation]>
-  <h2 class="heading-02">Bebidas</h2>
+<div class="drinks-container">
+  <header>
+    <h2 class="heading-02 drink-title">Bebidas</h2>
+  </header>
+  <main role="BeerList">
+    <section class="beer-card-list">
+      <h2 class="heading-02">Cervezas</h2>
+      <ng-container *ngFor="let drinkData of drinksData">
+        <app-drink-card [drinkData]="drinkData"></app-drink-card>
+      </ng-container>
+    </section>
+  </main>
+  <app-spinner *ngIf="!drinksData"></app-spinner>
 </div>
