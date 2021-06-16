@@ -16,39 +16,48 @@ export class DrinkCardComponent implements OnInit {
   @Input() drinkData: any = null;
   @ViewChild('drinkText') public drinkText: ElementRef;
 
+  /**
+   * used to check for overflow in the description text
+   */
   public overflow: boolean = false;
+  /**
+   * abv categories
+   */
   public categoryClasses: Array<string> = ['low', 'medium', 'high'];
+  /**
+   * used to control description expansion
+   */
   public textExpand: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (this.drinkText) {
       this.overflow = this._isOverFlowText();
     }
   }
 
   @HostListener('window:resize', [])
-  public onResize() {
+  public onResize(): void {
     if (this.drinkText) {
       this.overflow = this._isOverFlowText();
     }
   }
 
-  private _isOverFlowText() {
+  private _isOverFlowText(): boolean {
     return (
       this.drinkText.nativeElement.scrollHeight >
       this.drinkText.nativeElement.clientHeight
     );
   }
 
-  public showMore() {
+  public showMore(): void {
     this.textExpand = !this.textExpand;
   }
 
-  public getFoodPairingText(foodPairingArray: Array<string>) {
+  public getFoodPairingText(foodPairingArray: Array<string>): string {
     let resultText = '';
     const numItems = foodPairingArray.length - 1;
 
@@ -65,7 +74,7 @@ export class DrinkCardComponent implements OnInit {
     return resultText;
   }
 
-  public getClassByCategory(abv: number) {
+  public getClassByCategory(abv: number): string {
     if (abv <= 5) {
       return this.categoryClasses[0];
     } else if (abv > 6 && abv <= 10) {

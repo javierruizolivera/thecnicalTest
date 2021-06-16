@@ -1,10 +1,10 @@
-<div class="home-container">
+<div class="home-container" role="home view">
   <div class="main-layout">
     <div class="tabs-container">
-      <app-tabs [items]="navItems"
+      <app-tabs [items]="navItems" role="navigation tabs"
         (navItemSelected)="changeTab($event)"></app-tabs>
     </div>
-    <div class="tab-content-container" #tabContentContainer>
+    <div class="tab-content-container" role="content tab" #tabContentContainer>
       <ng-template #tabContainer></ng-template>
     </div>
   </div>

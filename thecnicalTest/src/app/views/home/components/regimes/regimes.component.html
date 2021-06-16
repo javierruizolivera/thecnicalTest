@@ -1,18 +1,19 @@
 <div class="regimes-container">
   <header>
-    <h1 class="heading-01">
+    <h1 class="heading-01" role="regimes title">
       HOTEL <strong>Mieres del Camín Apartamentos</strong>
     </h1>
     <div class="start-block">
       <span *ngFor="let start of [].constructor(5)"
-        class="material-icons start">start</span>
+        class="material-icons start" role="five star hotel">start</span>
     </div>
   </header>
-  <main role="regimes">
+  <main role="regimes" role="hotel regimes">
     <ng-container *ngFor="let regimeData of regimesData; let i= index">
-      <article role="regime-card-container" >
+      <article role="regime">
         <app-regime-card [regimeData]="regimeData" [number]="i" #cmp
-          [selected]="false" (regimeCardSelected)="selectRegimeCard($event)"></app-regime-card>
+          [selected]="false" (regimeCardSelected)="selectRegimeCard($event)"
+          role="selectable regime"></app-regime-card>
       </article>
     </ng-container>
   </main>

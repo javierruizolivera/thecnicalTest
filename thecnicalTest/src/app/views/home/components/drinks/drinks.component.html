@@ -1,14 +1,14 @@
 <div class="drinks-container">
   <header>
-    <h2 class="heading-02 drink-title">Bebidas</h2>
+    <h2 class="heading-02 drink-title" role="title of the drinks section">Bebidas</h2>
   </header>
-  <main role="BeerList">
+  <main role="Beer list">
     <section class="beer-card-list">
-      <h2 class="heading-02">Cervezas</h2>
+      <h2 class="heading-02" role="beer title">Cervezas</h2>
       <ng-container *ngFor="let drinkData of drinksData">
-        <app-drink-card [drinkData]="drinkData"></app-drink-card>
+        <app-drink-card [drinkData]="drinkData" role="beer card"></app-drink-card>
       </ng-container>
     </section>
   </main>
-  <app-spinner *ngIf="!drinksData"></app-spinner>
+  <app-spinner *ngIf="!drinksData" role="loading"></app-spinner>
 </div>

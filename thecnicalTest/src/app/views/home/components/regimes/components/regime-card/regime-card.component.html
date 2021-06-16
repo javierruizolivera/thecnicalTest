@@ -1,17 +1,19 @@
 <div class="regime-card-container" [ngClass]="{selected: selected}">
   <header>
-    <h3 class="heading-card">{{regimeData.title}}</h3>
-    <hr class="h-line">
+    <h3 class="heading-card" role="regime title">{{regimeData.title}}</h3>
+    <hr class="h-line" role="dividing line">
   </header>
-  <main class="card-body" role="regimeInfo">
-    <ul class="regime-list">
+  <main class="card-body" role="regime info">
+    <ul class="regime-list" role="regime list">
       <ng-container *ngFor="let regimeItem of regimeData.items">
-        <li class="regime-item text-body">{{regimeItem}}</li>
+        <li class="regime-item text-body" role="regime item">{{regimeItem}}</li>
       </ng-container>
     </ul>
   </main>
-  <button class="card-button text-button" (click)="regimeSelected()" role="selectRegime">
-      <span class="checkmark" [ngClass]="{selected: selected}"></span>
-      <span class="check-label">Elegir Régimen</span>
+  <button class="card-button text-button" (click)="regimeSelected()"
+    role="select regime">
+    <span class="checkmark" [ngClass]="{selected: selected}" role="selection
+      check"></span>
+    <span class="check-label">Elegir Régimen</span>
   </button>
 </div>

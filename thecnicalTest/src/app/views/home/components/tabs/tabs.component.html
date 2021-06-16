@@ -1,9 +1,11 @@
-<nav>
+<nav role="menu tab list">
   <ul class="nav-tabs">
     <ng-container *ngFor="let navItem of items; let i= index">
       <li class="nav-item"
         (click)="handlerNavItem(i)"
-        [ngClass]="{active: activeItem === i}">
+        [ngClass]="{active: activeItem === i}"
+        role="tab item"
+        tabindex="0">
         <a class="nav-link text-tab">{{navItem.title}}</a>
       </li>
     </ng-container>

@@ -17,18 +17,27 @@ import { DrinksComponent } from './components/drinks/drinks.component';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  /**
+   * reference to the tab container
+   */
   @ViewChild('tabContainer', { static: true, read: ViewContainerRef })
   _vcr: any;
+
+  /**
+   * reference to the content container of the tab
+   */
   @ViewChild('tabContentContainer', { static: true })
   tabContentContainer: ElementRef;
 
+  /**
+   * use to set the instance of the dynamically loaded component
+   */
   public component: Component;
+
+  /**
+   * used to set the configuration tabs
+   */
   public navItems: Array<NavItem> = [];
-  public showRegimes: boolean = true;
-  public showDrinks: boolean = false;
-  public drinksData: Array<any> = [];
-  public loadRegimesComponent: Type<RegimesComponent> = RegimesComponent;
-  public loadDrinksComponent: Type<DrinksComponent> = DrinksComponent;
 
   constructor(private _cfr: ComponentFactoryResolver) {}
 

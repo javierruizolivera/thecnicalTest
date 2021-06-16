@@ -18,9 +18,14 @@ import { StoreService } from '../../../../services/store.service';
   styleUrls: ['./regimes.component.scss'],
 })
 export class RegimesComponent implements OnInit {
-  @Input() public visible: boolean = false;
+  /**
+   * list of regime selectors
+   */
   @ViewChildren('cmp') private regimesList: QueryList<RegimeCardComponent>;
 
+  /**
+   * Information on all regimes
+   */
   public regimesData: Array<RegimeItem> = [];
 
   constructor(
@@ -32,7 +37,7 @@ export class RegimesComponent implements OnInit {
     this._loadRegimes();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.regimesList.changes.subscribe(() => {
       const regimeSelected = this._storeService.getRegimeFromStore();
       if (regimeSelected) {
@@ -41,13 +46,13 @@ export class RegimesComponent implements OnInit {
     });
   }
 
-  private _loadRegimes() {
+  private _loadRegimes(): void {
     this._regimesService.getRegimes().subscribe((response: any) => {
       this.regimesData = response;
     });
   }
 
-  public selectRegimeCard(number: number) {
+  public selectRegimeCard(number: number): void {
     const regimesList: Array<RegimeCardComponent> = this.regimesList.toArray();
     regimesList.map((regime: RegimeCardComponent) => {
       regime.resetSelected();

@@ -7,6 +7,9 @@ import { DrinksService } from '../../../../services/drinks.service';
   styleUrls: ['./drinks.component.scss'],
 })
 export class DrinksComponent implements OnInit {
+  /**
+   * Data obtained from the rest api
+   */
   public drinksData: any = null;
 
   constructor(private _drinkService: DrinksService) {}
@@ -15,13 +18,13 @@ export class DrinksComponent implements OnInit {
     this._loadDrinksData();
   }
 
-  private _loadDrinksData() {
+  private _loadDrinksData(): void {
     this._drinkService.getDrinks().subscribe((response: any) => {
       this.drinksData = response.sort(this._compareABV);
     });
   }
 
-  private _compareABV(a: any, b: any) {
+  private _compareABV(a: any, b: any): number {
     return a.abv - b.abv;
   }
 }
